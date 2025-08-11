@@ -3,13 +3,11 @@ import { useState, useEffect } from "react";
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false);
   
-    const toggleSearch = () => {
-      setShowSearch(!showSearch);
-    };
+   
   
     useEffect(() => {
       const handleResize = () => {
-        if (window.innerWidth > 768) {
+        if (window.innerWidth > 630) {
           setShowSearch(false); // close search if switching to desktop
         }
       };
@@ -31,7 +29,7 @@ const Navbar = () => {
           <div className="navbar-icons">
             <div className="homeButton">
               <a href="/">
-                <i className="fi fi-rs-house-chimney"></i>
+                <i className="fi fi-ss-house-chimney"></i>
               </a>
             </div>
             <div
@@ -46,7 +44,7 @@ const Navbar = () => {
         <div className="homeButton-searchForm">
           <div className="homeButton">
             <a href="/">
-              <i className="fi fi-rs-house-chimney"></i>
+              <i className="fi fi-ss-house-chimney"></i>
             </a>
           </div>
           <form className="searchForm">
@@ -56,7 +54,7 @@ const Navbar = () => {
         </div>
 
         <div className="profileButton">
-          <a href="/">A</a>
+          <a href="#">A</a>
           <div className="profileDropdown">
             <span className="profileDropdownText">Amoako Domson Wahab</span>
           </div>
