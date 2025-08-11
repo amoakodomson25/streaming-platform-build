@@ -1,6 +1,7 @@
 import {BrowserRouter , Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/Navbar'; 
+import MusicPlayer from './components/musicPlayer';
 import '@flaticon/flaticon-uicons/css/all/all.css';
 
 
@@ -18,7 +19,8 @@ function App() {
           element={<Home/>} 
           />
         </Routes>
-      </div>     
+      </div> 
+      <MusicPlayer />    
       </BrowserRouter>
       
     </div>

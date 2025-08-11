@@ -60,7 +60,32 @@ nav {
 .homeButton-searchForm{
   display: flex;
   align-items: center;
-  
+}
+nav .links{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+nav .links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: 100px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+nav .links a:hover {
+  background-color: var(--secondary-text-color);
+  color: var(--text-color);
+}
+nav .links a:nth-child(2) {
+  background-color: var(--text-color);
+  color: var(--background-color);
+}
+nav .links a:nth-child(2):hover {
+  background-color: var(--primary-color);
+  color: white;
 }
 
 .homeButton{
@@ -185,7 +210,7 @@ nav {
 
 
 /* When screen width is 630px or less */
-@media (max-width: 630px) {
+@media (max-width: 675px) {
   nav {
     padding: 12px ;
   }
@@ -223,4 +248,103 @@ nav {
   outline: none;
   color: white;
   padding: 5px;
+}
+
+
+
+
+.music-player-not-logged {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 40px 12px 40px; /* space inside */
+  margin: 8px;  /* space outside */
+  text-decoration: none;
+  color: var(--text-color);
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 16px); /* account for left/right margin */
+  background-color: var(--secondary-text-color);
+}
+
+.music-player-not-logged .info h2{
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+
+}
+.music-player-not-logged .info p{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
+.music-player-not-logged .sign-up-btn {
+  background-color: var(--text-color);
+  color: var(--background-color);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 100px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 14px;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 78.5vh; /* Full height like Spotify */
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Left Sidebar - Library */
+.library-wrapper {
+  flex: 1; /* Take up proportional space */
+  max-width: 250px; /* Fixed sidebar width */
+  background-color: #181818;
+  padding: 20px;
+  margin:0 8px;
+}
+
+/* Middle Main Content */
+.main-wrapper {
+  flex: 3; /* Larger middle section */
+  padding: 20px;
+  background-color: #121212;
+  margin-right: 8px;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #1db954 transparent; /* Green thumb, transparent track */
+}
+
+/* Chrome, Edge, Safari */
+.main-wrapper::-webkit-scrollbar {
+  width: 8px; /* Slim scrollbar */
+}
+
+.main-wrapper::-webkit-scrollbar-track {
+  background: transparent; /* No track background */
+}
+
+.main-wrapper::-webkit-scrollbar-thumb {
+  background-color: #1db954; /* Spotify green */
+  border-radius: 10px;
+}
+
+.main-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #1ed760; /* Lighter green on hover */
+}
+
+
+/* Optional - Make headings stand out */
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #b3b3b3;
 }

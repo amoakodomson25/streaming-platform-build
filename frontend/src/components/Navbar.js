@@ -7,7 +7,7 @@ const Navbar = () => {
   
     useEffect(() => {
       const handleResize = () => {
-        if (window.innerWidth > 630) {
+        if (window.innerWidth > 675) {
           setShowSearch(false); // close search if switching to desktop
         }
       };
@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="navbar-brand">
           <a href="/">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4jbXkWaYRcqw7zkFheo1YSlmlUSaEZyQFw&s"
               alt="App Logo"
               className="navbar-logo"
             />
@@ -39,9 +39,8 @@ const Navbar = () => {
               <i className="fi fi-rs-search"></i>
             </div>
           </div>
-        </div>
 
-        <div className="homeButton-searchForm">
+          <div className="homeButton-searchForm">
           <div className="homeButton">
             <a href="/">
               <i className="fi fi-ss-house-chimney"></i>
@@ -52,13 +51,21 @@ const Navbar = () => {
             <input type="text" placeholder="What do you want to play?" />
           </form>
         </div>
+        </div>
 
+       
+        <div className="links">
+          <a href="#">Sign Up</a>
+          <a href="#">Sign in</a>
+        </div>
+        {/*
         <div className="profileButton">
           <a href="#">A</a>
           <div className="profileDropdown">
             <span className="profileDropdownText">Amoako Domson Wahab</span>
           </div>
         </div>
+        */}
       </nav>
 
       {showSearch && (
