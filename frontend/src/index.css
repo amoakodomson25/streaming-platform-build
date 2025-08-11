@@ -1,0 +1,227 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+@import "~@flaticon/flaticon-uicons/css/all/all";
+/* layout */
+:root {
+  --primary-color: #1E88E5;
+  --secondary-color: #F5F5F5;
+  --background-color: #000000;
+  --text-color: #eeeeee;
+  --secondary-text-color: #333;
+  --icon-gray: #999;
+  --icon-hover: #555;
+  --font-family: 'Poppins', sans-serif;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--background-color);
+  margin: 0;
+  font-family: "Poppins";
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+nav {
+  max-width: auto;
+  margin: 0 auto;
+  max-height: 80px;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  gap: 12px;
+
+}
+.navbar-brand .navbar-icons {
+  display: none;
+  align-items: center;
+}
+.navbar-brand a{
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+.homeButton-searchForm{
+  display: flex;
+  align-items: center;
+  
+}
+
+.homeButton{
+  width: 44px;
+  height: 44px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--secondary-text-color);
+  color: var(--text-color);
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+.homeButton a{
+  text-decoration: none;
+  color: var(--icon-gray);
+  display: flex;
+}
+.homeButton a i {
+  display: flex;
+  font-size: 20px;
+  color: var(--icon-gray);
+  transition: color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+.homeButton i {
+  display: flex;
+  font-size: 20px;
+  color: var(--icon-gray);
+  transition: color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.searchForm {
+  display: flex;
+  align-items: center;
+  min-width: 350px;
+  max-height: 44px;
+
+  gap: 12px; 
+  border:none; 
+  outline: none; 
+  border-radius: 100px; 
+  padding: 16px 16px;
+  background-color: var(--secondary-text-color);
+}
+
+.searchForm i {
+  color: var(--icon-gray);
+  font-size: 22px;
+  padding: 0;
+  display: flex;
+}
+
+.searchForm input {
+  flex: 1; 
+  padding: 0px;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+  color: var(--text-color);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.searchForm input::placeholder {
+  color: var(--icon-gray);
+}
+
+.profileButton {
+  position: relative;
+  display: inline-block;
+}
+
+.profileButton a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color, #2015c0); /* brand accent */
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.profileButton a:hover {
+  transform: scale(1.05);
+}
+
+
+.profileDropdown {
+  position: absolute;
+  top: 50px; /* fixed below the profile circle */
+  left: 50%;
+  transform: translateX(-90%); /* keeps it centered horizontally */
+  background-color: var(--secondary-text-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 10;
+}
+
+.profileButton:hover .profileDropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* When screen width is 630px or less */
+@media (max-width: 630px) {
+  nav {
+    padding: 12px ;
+  }
+  .homeButton-searchForm{
+    display: none;
+  
+  }
+  .navbar-brand .navbar-icons {
+    display: flex;
+  }
+  .searchBarBelow {
+    display: none;
+  }
+
+}
+
+
+.searchBarBelow {
+  display: block;
+  padding: 12px 20px 20px 20px;
+  border-bottom: 1px solid #333;
+}
+
+.searchBarBelow .searchForm {
+  display: flex;
+  align-items: center;
+  background: #242424;
+  padding: 16px 12px;
+  border-radius: 20px;
+}
+
+.searchBarBelow .searchForm input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 5px;
+}
