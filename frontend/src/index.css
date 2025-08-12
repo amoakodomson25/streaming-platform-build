@@ -184,9 +184,9 @@ nav .links a:nth-child(2):hover {
 
 .profileDropdown {
   position: absolute;
-  top: 50px; /* fixed below the profile circle */
-  left: 50%;
-  transform: translateX(-90%); /* keeps it centered horizontally */
+  top: 4px; /* fixed below the profile circle */
+  right: 0%;
+  transform: translateX(-25%); /* keeps it centered horizontally */
   background-color: var(--secondary-text-color);
   color: white;
   padding: 4px 8px;
@@ -294,9 +294,12 @@ nav .links a:nth-child(2):hover {
   flex: 1; /* Take up proportional space */
   max-width: 320px; /* Fixed sidebar width */
   background: linear-gradient(to bottom, #222, #111);
-  padding: 20px 16px;
   margin: 0 8px;
   border-radius: 8px;
+  transition: max-width 1s ease, padding 1s ease;
+  padding: 16px;
+  overflow: hidden;
+
 }
 
 .library-cards {
@@ -384,15 +387,13 @@ nav .links a:nth-child(2):hover {
   gap: 12px;
   margin: 12px 0 0 0;
 }
-.library-header h1
-{
+.library-header h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
-.library-header h1 i
-{
+.library-header h1 i {
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -400,6 +401,9 @@ nav .links a:nth-child(2):hover {
   border-radius: 200px;
   padding: 12px;
   position: relative;
+}
+.library-header h1 i:hover {
+  background-color: #444;
 }
 
 .library-search {
@@ -423,9 +427,7 @@ nav .links a:nth-child(2):hover {
   position: relative;
 }
 .library-wrapper {
-  transition: max-width 1s ease, padding 1s ease;
-  padding: 16px;
-  overflow: hidden;
+
 }
 
 .library-wrapper.collapsed {
@@ -466,13 +468,13 @@ nav .links a:nth-child(2):hover {
   border-radius: 6px;
   font-size: 14px;
   white-space: nowrap;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, .8);
-  opacity: 0; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, visibility 0.25s ease;
   z-index: 10;
   display: flex;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .library-wrapper.collapsed .library-card:hover .library-details {
@@ -480,7 +482,6 @@ nav .links a:nth-child(2):hover {
   visibility: visible;
   pointer-events: auto;
 }
-
 
 .library-wrapper.collapsed .library-card {
   display: flex;
@@ -499,7 +500,6 @@ nav .links a:nth-child(2):hover {
   width: 52px;
   object-fit: cover;
 }
-
 
 .library-filter {
   display: flex;
@@ -584,9 +584,8 @@ nav .links a:nth-child(2):hover {
   transform: translateY(-50%);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
-.library-filter-select{
+.library-filter-select {
 }
-
 
 .library-filter-select input[type="checkbox"]:checked {
   background-color: #1db954;
@@ -609,8 +608,6 @@ nav .links a:nth-child(2):hover {
   outline: 2px solid #1db954;
   outline-offset: 2px;
 }
-
-
 
 i {
   display: flex;
@@ -758,8 +755,7 @@ p {
   color: #eee;
   font-size: 16px;
   font-weight: 500;
-  letter-spacing: -.5px;
-
+  letter-spacing: -0.5px;
 }
 .song-details p {
   margin: 4px 0 0;
@@ -831,7 +827,7 @@ p {
 .artiste-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
   border-radius: 50%;
   transition: box-shadow 0.2s ease;

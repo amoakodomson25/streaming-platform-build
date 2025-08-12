@@ -53,19 +53,19 @@ const Navbar = () => {
         </div>
         </div>
 
-       
+       {/*
         <div className="links">
           <a href="/">Sign Up</a>
           <a href="/">Sign in</a>
         </div>
-        {/*
+                */}
         <div className="profileButton">
           <a href="#">A</a>
           <div className="profileDropdown">
             <span className="profileDropdownText">Amoako Domson Wahab</span>
           </div>
         </div>
-        */}
+
       </nav>
 
       {showSearch && (

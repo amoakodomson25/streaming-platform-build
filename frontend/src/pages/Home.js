@@ -4,9 +4,7 @@ const Home = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showLibrary, setShowSearch] = useState(false);
-  
-   
-  
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1160) {
@@ -56,7 +54,6 @@ const Home = () => {
                 >
                   <i className="fi fi-rr-filter"></i>
                 </div>
-
                   <div
                     id="library-filter-checkboxes"
                     className={`library-filter-select ${isFilterOpen ? "visible" : "hidden"}`}
@@ -99,7 +96,7 @@ const Home = () => {
             </div>
             <div className="library-content">
               <div className="library-cards">
-                <a href="/" className="library-card">
+              <a href="/" className="library-card">
                   <div className="library-image-wrapper">
                     <img
                       src="https://i.scdn.co/image/ab6761610000517432ff1f4bcb5d641741f930f2"
@@ -148,6 +145,40 @@ const Home = () => {
                     </p>
                   </div>
                 </a>
+                <a href="/" className="library-card">
+                  <div className="library-image-wrapper">
+                    <img
+                      src="https://i.scdn.co/image/ab6761610000517432ff1f4bcb5d641741f930f2"
+                      alt="Library Cover"
+                      className="library-image"
+                    />
+                  </div>
+                  <div className="library-details">
+                    <h2>
+                      <a href="/">ABALO!</a>
+                    </h2>
+                    <p>Artist</p>
+                  </div>
+                </a>
+                <a href="/" className="library-card">
+                  <div className="library-image-wrapper">
+                    <img
+                      src="https://source.boomplaymusic.com/group10/M00/10/10/8e31a20080f14c1d9e30e8efbac470a9H3000W3000_320_320.jpg"
+                      alt="Library Cover"
+                      className="library-image"
+                    />
+                  </div>
+                  <div className="library-details">
+                    <h2>
+                      <a href="/">Pretend (Feat. Tsemi)</a>
+                    </h2>
+                    <p>
+                      <a href="/">ABALO!</a>
+                    </p>
+                  </div>
+                </a>
+
+
               </div>
             </div>
         </div>
