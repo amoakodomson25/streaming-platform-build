@@ -2,12 +2,34 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(false);  
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [showLibrary, setShowSearch] = useState(false);
+  
+   
+  
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 1160) {
+        setShowSearch(false);
+        console.log("desktop",window.innerWidth);
+      }else {
+        setShowSearch(true);
+        console.log("mobile");
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  
+  
+
+
   return (
     <div className="home">
       <div className="home-wrapper">
 
-        <div className={`library-wrapper ${isCollapsed ? "collapsed" : ""}`}>          
+        <div className={`library-wrapper 
+          ${isCollapsed || showLibrary ? "collapsed" : ""}`}>          
           <div className="library-header">
               <h1>
                 <span>Your Library</span>
@@ -63,7 +85,6 @@ const Home = () => {
                       />
                       Albums
                     </label>
-
                     <label>
                       <input
                         type="checkbox"

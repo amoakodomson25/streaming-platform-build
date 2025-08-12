@@ -55,8 +55,8 @@ const Navbar = () => {
 
        
         <div className="links">
-          <a href="#">Sign Up</a>
-          <a href="#">Sign in</a>
+          <a href="/">Sign Up</a>
+          <a href="/">Sign in</a>
         </div>
         {/*
         <div className="profileButton">
