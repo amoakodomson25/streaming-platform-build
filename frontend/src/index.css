@@ -384,6 +384,23 @@ nav .links a:nth-child(2):hover {
   gap: 12px;
   margin: 12px 0 0 0;
 }
+.library-header h1
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.library-header h1 i
+{
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  border-radius: 200px;
+  padding: 12px;
+  position: relative;
+}
 
 .library-search {
   display: flex;
@@ -401,6 +418,88 @@ nav .links a:nth-child(2):hover {
   padding: 5px;
   width: 100%;
 }
+
+.library-filter-wrapper {
+  position: relative;
+}
+.library-wrapper {
+  transition: max-width 1s ease, padding 1s ease;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.library-wrapper.collapsed {
+  max-width: 72px;
+  padding: 16px 4px;
+  overflow: visible;
+}
+
+.library-wrapper.collapsed .library-header h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.library-wrapper.collapsed .library-header h1 span {
+  display: none;
+}
+
+.library-wrapper.collapsed .library-header p,
+.library-wrapper.collapsed .library-nav,
+.library-wrapper.collapsed .library-details {
+  display: none;
+}
+.library-wrapper.collapsed .library-card {
+  position: relative;
+  overflow: visible;
+}
+
+.library-wrapper.collapsed .library-card .library-details {
+  position: absolute;
+  top: 50%;
+  left: 115%; /* position right outside the card */
+  transform: translate(0, -50%); /* vertically center */
+  background-color: #333;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .8);
+  opacity: 0; 
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 10;
+  display: flex;
+  pointer-events: none; 
+}
+
+.library-wrapper.collapsed .library-card:hover .library-details {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+
+.library-wrapper.collapsed .library-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.library-wrapper.collapsed .library-image-wrapper {
+  margin: 0;
+}
+
+.library-wrapper.collapsed .library-image-wrapper .library-image {
+  height: 52px;
+  width: 52px;
+  object-fit: cover;
+}
+
+
 .library-filter {
   display: flex;
   align-items: center;
@@ -409,22 +508,106 @@ nav .links a:nth-child(2):hover {
   padding: 12px;
   position: relative;
 }
-
-.library-filter-select{
+.library-filter:hover {
+  background-color: #444;
+}
+.library-filter-select {
   position: absolute;
-  top: 50px;
-  left: -60px;
-  outline: 0;
-  border: none;
-  background-color: #333;
+  top: 48px;
+  left: -188px;
+  background-color: #222;
   color: white;
-  padding: 10px 8px;
+  padding: 24px 24px;
+  padding-bottom: 28px;
+  min-width: 228px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.library-filter-select.hidden {
+  display: none;
 }
 
+.library-filter-header {
+  margin-bottom: 8px;
+}
+
+.library-filter-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #ddd;
+}
+
+.library-filter-header hr {
+  border: none;
+  height: 1px;
+  background-color: #444;
+  margin: 0;
+}
+
+.library-filter-select label {
+  font-size: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  padding-left: 28px;
+  color: #eee;
+  transition: color 0.2s ease;
+}
+
+.library-filter-select label:hover {
+  color: #1db954; /* Spotify green for fun */
+}
+
+.library-filter-select input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid #555;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
 .library-filter-select{
-  width: 100px;
 }
 
+
+.library-filter-select input[type="checkbox"]:checked {
+  background-color: #1db954;
+  border-color: #1db954;
+}
+
+.library-filter-select input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  transform: rotate(45deg);
+}
+
+.library-filter-select input[type="checkbox"]:focus-visible {
+  outline: 2px solid #1db954;
+  outline-offset: 2px;
+}
 
 
 
@@ -474,7 +657,7 @@ p {
 }
 .songs-card-wrapper {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 /* Scroll container */
