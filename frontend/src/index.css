@@ -220,7 +220,6 @@ nav .links a:nth-child(2):hover {
     display: none;
   }
 }
-
 .searchBarBelow {
   display: block;
   padding: 12px 20px 20px 20px;
@@ -1232,4 +1231,8 @@ p {
   align-items: center;
   justify-content: center;
 
+}
+
+
+@media (max-width: 900px) {
 }
