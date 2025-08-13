@@ -9,6 +9,9 @@ const musicPlayer = () => {
             </div>
         <div className="sign-up-btn ">sign up</div>
         </a>
+
+        
+        
     );
 }
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
     const [showSearch, setShowSearch] = useState(false);
@@ -53,18 +54,20 @@ const Navbar = () => {
         </div>
         </div>
 
-       {/*
+
         <div className="links">
-          <a href="/">Sign Up</a>
-          <a href="/">Sign in</a>
-        </div>
-                */}
+          
+          <Link to="/Signup">Sign Up</Link>
+          <Link to="/Signin">Sign In</Link>        
+          </div>
+        {/*      
         <div className="profileButton">
           <a href="#">A</a>
           <div className="profileDropdown">
             <span className="profileDropdownText">Amoako Domson Wahab</span>
           </div>
         </div>
+         */}
 
       </nav>
 
