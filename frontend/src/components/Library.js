@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const Library = () => {
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(false);
-    const [showLibrary, setShowSearch] = useState(window.innerWidth1160);
+    const [showLibrary, setShowSearch] = useState(window.innerWidth<1160);
   
     useEffect(() => {
       const handleResize = () => {
