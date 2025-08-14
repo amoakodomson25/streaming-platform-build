@@ -111,14 +111,6 @@ const Signup_2 = () => {
           {loading ? "Loading..." : "Next"}
         </button>
 
-        <div className="line"></div>
-
-        <div className="sign-in-prompt">
-          <span>Already have an account?</span>
-          <Link className="sign-in-link" to="/Signin">
-            Sign In
-          </Link>
-        </div>
       </form>
     </>
   );

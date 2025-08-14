@@ -19,7 +19,7 @@ const Signup_1 = () => {
     localStorage.setItem("signupUsername", username);
   }, [username]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!username.trim()) {
@@ -30,12 +30,39 @@ const Signup_1 = () => {
     setError("");
     setLoading(true);
 
-    // Delay for smooth loading effect
-    setTimeout(() => {
+    try {
+      // Check if username exists in the backend
+      const res = await fetch("http://localhost:4000/api/accounts/check-username", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Server error");
+        setLoading(false);
+        return;
+      }
+
+      if (data.exists) {
+        setError("This username is already taken.");
+        setLoading(false);
+        return;
+      }
+
+      // Username is available, move to next step
+      setLoading(false);
       navigate("/signup_2", {
         state: { username, email: emailFromState },
       });
-    }, 800);
+
+    } catch (err) {
+      console.error(err);
+      setError("Server error, please try again later.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -61,7 +88,7 @@ const Signup_1 = () => {
           </span>
           <input
             type="text"
-            name="Username"
+            name="username"
             className="sign-up-input"
             value={username}
             onChange={(e) => setUsername(e.target.value)}

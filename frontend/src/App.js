@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import AccountCreated from "./pages/accountCreated"
+import Home2 from "./pages/home-logged-in";
+import AccountCreated from "./pages/accountCreated";
 import Signin from "./pages/auth/Signin";
 import Signup from "./pages/auth/Signup";
 import OtpPage from "./pages/auth/OTP";
@@ -8,7 +9,6 @@ import Forgotpassword from "./pages/auth/Forgot_password";
 import Signup_1 from "./pages/auth/signup_1";
 import Signup_2 from "./pages/auth/signup_2";
 import Signup_3 from "./pages/auth/signup_3";
-
 
 import "@flaticon/flaticon-uicons/css/all/all.css";
 
@@ -19,6 +19,7 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/Home" element={<Home2 />} />
             <Route path="/Signin" element={<Signin />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/OTP" element={<OtpPage />} />
@@ -27,11 +28,8 @@ function App() {
             <Route path="/signup_2" element={<Signup_2 />} />
             <Route path="/signup_3" element={<Signup_3 />} />
             <Route path="/accountCreated" element={<AccountCreated />} />
-
-            
           </Routes>
         </div>
-
       </BrowserRouter>
     </div>
   );

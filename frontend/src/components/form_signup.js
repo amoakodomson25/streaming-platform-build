@@ -5,21 +5,19 @@ const Form_signup = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Prefill from localStorage if available
   const [email, setEmail] = useState(
     location.state?.email || localStorage.getItem("signupEmail") || ""
   );
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Store email in localStorage on change
   useEffect(() => {
     if (email.trim()) {
       localStorage.setItem("signupEmail", email);
     }
   }, [email]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Basic email validation
@@ -35,12 +33,37 @@ const Form_signup = () => {
     setError("");
     setLoading(true);
 
-    // Small delay before navigating
-    setTimeout(() => {
-      navigate("/signup_1", {
-        state: { ...location.state, email }, // Pass along email
+    try {
+      // Call backend to check if email exists
+      const res = await fetch(`http://localhost:4000/api/accounts/check-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
       });
-    }, 800);
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "An error occurred.");
+        setLoading(false);
+        return;
+      }
+
+      if (data.exists) {
+        setError("This email is already registered. Please sign in.");
+        setLoading(false);
+        return;
+      }
+
+      // Email is available, move to next step
+      setLoading(false);
+      navigate("/signup_1", { state: { ...location.state, email } });
+
+    } catch (err) {
+      console.error(err);
+      setError("Server error, please try again later.");
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,6 +81,7 @@ const Form_signup = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
       </label>
+
 
       {error && (
         <div className="error-message">

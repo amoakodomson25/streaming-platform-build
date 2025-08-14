@@ -1,43 +1,23 @@
-require('dotenv').config()
-const express = require ('express')
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
 
-// Database connection
-const db = require('./config/db')
+const app = express();
 
-// Importing routes
-const accountsRoutes = require('./routes/accountsRoutes')
-const songsRoutes = require('./routes/songsRoutes')
+// Enable CORS for all routes
+app.use(cors({
+  origin: 'http://localhost:3000', 
+  credentials: true,
+}));
 
+app.use(express.json());
 
-//Express app setup
-const app = express()
-// server.js
-;(async () => {
-    try {
-      const result = await db.query('SELECT * FROM user_roles LIMIT 2')
-      console.log('✅ Database connection successful', result.rows.length, 'rows found')
-    } catch (err) {
-      console.error('❌ Database connection failed:', err.message)
-      process.exit(1)
-    }
-  })()
-  
+// Your routes
+const accountsRoutes = require('./routes/accountsRoutes');
+app.use('/api/accounts', accountsRoutes);
 
+const PORT = process.env.PORT;
 
-
-//Global Middleware
-app.use(express.json())
-app.use((req, res, next) => {
-    req.db = db
-    console.log(req.path, req.method)
-    next()
-  })
-
-// Routes
-app.use('/api/accounts', accountsRoutes)
-
-
-//listen for requests
-app.listen(process.env.PORT, () => {
-    console.log('Server is running on port 4000')
-})
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

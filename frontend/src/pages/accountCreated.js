@@ -2,24 +2,19 @@ import { useEffect } from "react";
 
 const AccountCreated = () => {
   useEffect(() => {
-    // Clear all stored form data
     localStorage.clear();
 
-    // Prevent navigating back to signup pages
     const preventBack = () => {
       window.history.pushState(null, "", window.location.href);
     };
 
-    // Push state once now
     preventBack();
 
-    // Keep trapping the back button
     window.addEventListener("popstate", preventBack);
 
-    // Redirect to home after 3s
     const timer = setTimeout(() => {
       window.removeEventListener("popstate", preventBack);
-      window.location.replace("/"); // hard redirect, clears React Router stack too
+      window.location.replace("/home"); // hard redirect, clears React Router stack too
     }, 3000);
 
     return () => {
@@ -44,7 +39,6 @@ const AccountCreated = () => {
     >
       <div
         style={{
-          background: "rgba(255,255,255,0.15)",
           padding: "40px",
           borderRadius: "16px",
           boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
