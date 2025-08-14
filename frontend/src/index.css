@@ -1235,4 +1235,7 @@ p {
 
 
 @media (max-width: 900px) {
+  .music-player-wrapper{
+    gap: 10px;
+  }
 }
