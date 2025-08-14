@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import AccountCreated from "./pages/accountCreated"
 import Signin from "./pages/auth/Signin";
 import Signup from "./pages/auth/Signup";
 import OtpPage from "./pages/auth/OTP";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/signup_1" element={<Signup_1 />} />
             <Route path="/signup_2" element={<Signup_2 />} />
             <Route path="/signup_3" element={<Signup_3 />} />
+            <Route path="/accountCreated" element={<AccountCreated />} />
 
             
           </Routes>

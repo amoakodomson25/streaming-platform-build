@@ -1,7 +1,7 @@
 import Library from "../components/Library";
 import Songs from "../components/Songs";
 import Navbar from "../components/Navbar";
-import MusicPlayer2 from "../components/musicPlayer2";
+import MusicPlayer from "../components/musicPlayer";
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
           <Songs />
         </div>
       </div>
-      <MusicPlayer2 />
+      <MusicPlayer />
     </>
   );
 };
