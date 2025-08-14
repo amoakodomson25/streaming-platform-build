@@ -1125,7 +1125,7 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 12px 40px 12px 8px; 
   margin: 4px 8px; 
   text-decoration: none;
@@ -1171,7 +1171,7 @@ p {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
 
 }
 .currently-playing-controls-buttons{
@@ -1236,6 +1236,18 @@ p {
 
 @media (max-width: 900px) {
   .music-player-wrapper{
+    justify-content: space-between;
+    padding: 12px;
     gap: 10px;
+  }
+  .progress-bar {
+    width: 200px;
+  }
+  .other-controls{
+    display: none;
+  }
+  .currently-playing-controls-buttons{
+    width: 100%;
+  
   }
 }

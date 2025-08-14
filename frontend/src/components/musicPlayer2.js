@@ -15,6 +15,16 @@ const musicPlayer2 = () => {
         </div>
       </div>
       <div className="currently-playing-controls">
+      <div className="currently-playing-controls-progress-bar-wrapper">
+          <div class="current-time">1:25</div>
+          <div class="progress-wrapper">
+            <div class="progress-bar">
+              <div class="progress"></div>
+              <div class="progress-thumb"></div>
+            </div>
+          </div>
+          <div class="total-duration">2:32</div>
+        </div>
         <div className="currently-playing-controls-buttons">
         <div className="currently-playing-controls-button">
           <i className="fi fi-sr-shuffle"></i>
@@ -32,23 +42,9 @@ const musicPlayer2 = () => {
           <i className="fi fi-sr-arrows-repeat"></i>
         </div>
         </div>
-        <div className="currently-playing-controls-progress-bar-wrapper">
-          <div class="current-time">1:25</div>
-          <div class="progress-wrapper">
-            <div class="progress-bar">
-              <div class="progress"></div>
-              <div class="progress-thumb"></div>
-            </div>
-          </div>
-          <div class="total-duration">2:32</div>
-        </div>
+
       </div>
       <div className="other-controls">
-
-
-        <div className="currently-playing-controls-button">
-          <i className="fi fi-rr-window-maximize"></i>
-        </div>
 
       </div>
     </div>
