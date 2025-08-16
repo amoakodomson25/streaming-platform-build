@@ -23,7 +23,11 @@ const Signup_3 = () => {
     e.preventDefault();
 
     // Password validation
-    if (!requirements.length || !requirements.uppercase || !requirements.number) {
+    if (
+      !requirements.length ||
+      !requirements.uppercase ||
+      !requirements.number
+    ) {
       setError("Please meet all password requirements before continuing.");
       return;
     }
@@ -50,6 +54,9 @@ const Signup_3 = () => {
       if (data.token) {
         localStorage.setItem("token", data.token);
       }
+      if (data.user) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+      }
 
       setSuccess("Account created successfully!");
       setLoading(false);
@@ -57,7 +64,6 @@ const Signup_3 = () => {
       setTimeout(() => {
         navigate("/accountCreated", { state: { user: data.user } });
       }, 1500);
-
     } catch (err) {
       console.error(err);
       setError("Server error, please try again later.");
@@ -100,7 +106,7 @@ const Signup_3 = () => {
                 color: "#888",
                 fontSize: "1.2rem",
               }}
-              onClick={() => setShowPassword(prev => !prev)}
+              onClick={() => setShowPassword((prev) => !prev)}
             ></i>
           </div>
         </label>
@@ -109,13 +115,20 @@ const Signup_3 = () => {
           <h1>Password requirements</h1>
           <ul style={{ listStyle: "none", padding: 0 }}>
             <li>
-              <input type="checkbox" checked={requirements.length} readOnly /> At least 6 characters long
+              <input type="checkbox" checked={requirements.length} readOnly />{" "}
+              At least 6 characters long
             </li>
             <li>
-              <input type="checkbox" checked={requirements.uppercase} readOnly /> At least one uppercase letter
+              <input
+                type="checkbox"
+                checked={requirements.uppercase}
+                readOnly
+              />{" "}
+              At least one uppercase letter
             </li>
             <li>
-              <input type="checkbox" checked={requirements.number} readOnly /> At least one number
+              <input type="checkbox" checked={requirements.number} readOnly />{" "}
+              At least one number
             </li>
           </ul>
         </div>
@@ -124,13 +137,6 @@ const Signup_3 = () => {
           <div className="error-message">
             <i className="fi fi-rr-octagon-exclamation"></i>
             <span>{error}</span>
-          </div>
-        )}
-
-        {success && (
-          <div className="success-message">
-            <i className="fi fi-rr-check"></i>
-            <span>{success}</span>
           </div>
         )}
 

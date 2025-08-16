@@ -9,6 +9,7 @@ import Forgotpassword from "./pages/auth/Forgot_password";
 import Signup_1 from "./pages/auth/signup_1";
 import Signup_2 from "./pages/auth/signup_2";
 import Signup_3 from "./pages/auth/signup_3";
+import Profile from "./pages/profile/UserProfile";
 
 import "@flaticon/flaticon-uicons/css/all/all.css";
 
@@ -28,6 +29,8 @@ function App() {
             <Route path="/signup_2" element={<Signup_2 />} />
             <Route path="/signup_3" element={<Signup_3 />} />
             <Route path="/accountCreated" element={<AccountCreated />} />
+            <Route path="/profile" element={<Profile />} />
+
           </Routes>
         </div>
       </BrowserRouter>

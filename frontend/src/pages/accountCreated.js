@@ -2,7 +2,10 @@ import { useEffect } from "react";
 
 const AccountCreated = () => {
   useEffect(() => {
-    localStorage.clear();
+    localStorage.removeItem("signupUsername");
+    localStorage.removeItem("signupEmail");
+    localStorage.removeItem("signupGender");
+    localStorage.removeItem("signupPassword");
 
     const preventBack = () => {
       window.history.pushState(null, "", window.location.href);

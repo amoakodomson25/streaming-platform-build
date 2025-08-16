@@ -60,14 +60,7 @@ const Navbar = () => {
           <Link to="/Signup">Sign Up</Link>
           <Link to="/Signin">Sign In</Link>        
           </div>
-        {/*      
-        <div className="profileButton">
-          <a href="#">A</a>
-          <div className="profileDropdown">
-            <span className="profileDropdownText">Amoako Domson Wahab</span>
-          </div>
-        </div>
-         */}
+
 
       </nav>
 

@@ -32,11 +32,14 @@ const Signup_1 = () => {
 
     try {
       // Check if username exists in the backend
-      const res = await fetch("http://localhost:4000/api/accounts/check-username", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username }),
-      });
+      const res = await fetch(
+        "http://localhost:4000/api/accounts/check-username",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username }),
+        }
+      );
 
       const data = await res.json();
 
@@ -57,7 +60,6 @@ const Signup_1 = () => {
       navigate("/signup_2", {
         state: { username, email: emailFromState },
       });
-
     } catch (err) {
       console.error(err);
       setError("Server error, please try again later.");
@@ -91,8 +93,13 @@ const Signup_1 = () => {
             name="username"
             className="sign-up-input"
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            
+            onChange={(e) => {
+              const value = e.target.value;
+              // Allow only alphabets and spaces
+              if (/^[A-Za-z ]*$/.test(value)) {
+                setUsername(value);
+              }
+            }}
           />
         </label>
 
